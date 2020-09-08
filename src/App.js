@@ -16,8 +16,20 @@ function App() {
         type:"error"
       })
     }
-    setCartItem(...cartItem,item)
-  }
+    setCartItem([...cartItem],item)
+  };
+
+  const buyNow = () => {
+    setCartItem([])
+    toast("Purchase Complete",{
+      type:"success"
+    })
+  };
+
+  const removeItem = item => {
+    setCartItem(cartItem.filter(singleItem => singleItem.id !== item.id)
+    )}
+
   return (
     <div className="App">
       
